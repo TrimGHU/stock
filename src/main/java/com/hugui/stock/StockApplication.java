@@ -40,6 +40,7 @@ public class StockApplication {
 				}
 				
 				//浦发银行(600000)邯郸钢铁(600001)
+				//http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002095&scale=240&ma=no&datalen=30
 	        }
 		} catch (IOException e) {
 		}
