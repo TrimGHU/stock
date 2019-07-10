@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hugui.stock.mapper.StockKlineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hugui.stock.entity.StockKline">
+        <id column="id" property="id" />
+        <result column="k5" property="k5" />
+        <result column="k10" property="k10" />
+        <result column="k20" property="k20" />
+        <result column="k30" property="k30" />
+        <result column="trading_date" property="tradingDate" />
+    </resultMap>
+
+</mapper>

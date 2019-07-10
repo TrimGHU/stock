@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hugui.stock.mapper.StockMarketMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hugui.stock.entity.StockMarket">
+        <id column="id" property="id" />
+        <result column="trading_date" property="tradingDate" />
+        <result column="trading_volume" property="tradingVolume" />
+        <result column="OPEN" property="open" />
+        <result column="high" property="high" />
+        <result column="low" property="low" />
+        <result column="CLOSE" property="close" />
+    </resultMap>
+
+</mapper>

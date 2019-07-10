@@ -1,12 +1,9 @@
 package com.hugui.stock;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Copyright © 2019 Obexx. All rights reserved.
@@ -20,30 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @version: V1.0
  */
 
+@SpringBootApplication
+@EnableScheduling
 public class StockApplication {
 
 	@Autowired
 	public static void main(String[] args) {
-		try (FileInputStream fis = new FileInputStream(new File("./data/stockcode.txt"))) {
-
-			InputStreamReader reader = new InputStreamReader(fis,"UTF-8");
-			BufferedReader br = new BufferedReader(reader);
-			String line;
-			while ((line = br.readLine()) != null) {
-				String[] stockInfos = line.split("\\)");
-				if(stockInfos.length > 0) {
-					for(String stockInfo : stockInfos) {
-						String[] stock = stockInfo.split("\\(");
-						System.out.println(stock[0]);
-						System.out.println(stock[1]);
-					}
-				}
-				
-				//浦发银行(600000)邯郸钢铁(600001)
-				//http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002095&scale=240&ma=no&datalen=30
-	        }
-		} catch (IOException e) {
-		}
+		SpringApplication.run(StockApplication.class, args);
 	}
 
 }

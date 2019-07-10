@@ -1,0 +1,38 @@
+mybatis-plus:
+  mapper-locations: classpath:com/hugui/stock/mapper/*/*.xml
+  typeAliasesPackage: com.hugui.stock.entity
+  
+server:
+  port: 9000
+  context-path: /stock
+spring:
+  application:
+    name: stock
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      max-active: 20
+      max-wait: 60000
+      min-idle: 5
+      stat-view-servlet:
+        login-password: druid
+        login-username: druid
+      web-stat-filter:
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
+    password: 1234
+    url: jdbc:mysql://127.0.0.1:3306/stock?characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+  redis:
+    database: 9
+    host: 127.0.0.1
+    password: 12345
+    pool:
+      max-active: 100
+      max-idle: 50
+      max-wait: 1000
+    port: 6379
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
