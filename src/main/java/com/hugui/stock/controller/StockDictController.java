@@ -103,6 +103,26 @@ public class StockDictController {
 		}
 	}
 
+	@Scheduled(cron = "0 0 19 * * *")
+	public void analyseStockMarketPerDay() {
+		List<StockDict> stockDictList = stockDictService.selectList(null);
+		if (stockDictList.isEmpty()) {
+			return;
+		}
+
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String currentDate = df.format(new Date());
+
+		List<StockDict> goodStockList = new ArrayList<>();
+		for (StockDict stock : stockDictList) {
+			List<StockKline> stockKlineList = stockKlineService
+					.selectList(new EntityWrapper<StockKline>(StockKline.builder().stockCode(stock.getCode()).build())
+							.addFilter("order by trading_date desc limit 2"));
+			
+			
+		}
+	}
+
 	@Scheduled(cron = "0 30 15 * * *")
 	public void collectStockMarketPerDay() throws ParseException, InterruptedException {
 		logger.info("begin collect stock market data per day ==> ");
