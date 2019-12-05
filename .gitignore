@@ -1,4 +1,5 @@
 target/
+result/
 ###!.mvn/wrapper/maven-wrapper.jar
 .mvn/
 mvnw
